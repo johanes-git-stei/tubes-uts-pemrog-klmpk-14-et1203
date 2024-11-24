@@ -1,7 +1,7 @@
 # Tugas Besar UTS ET1203 Pemrograman
 ## Kelompok 14: PROJECT NAME PENDING
 ## Repository untuk proyek aplikasi media player / youtube clone menggunakan Python dan Tkinter
-
+### WARNING: Perlu python-vlc dan aplikasi vlc sendiri untuk menjalankan kode ini!
 ```
 Target utama:
 Sistem login            [X] 00%
