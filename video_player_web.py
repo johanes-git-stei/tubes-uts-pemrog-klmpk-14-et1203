@@ -1,3 +1,5 @@
+# CHANGE THE FILE NAME TO video_player.py WHEN TRYING IT
+
 from flask import Flask, render_template, request, jsonify, send_file
 import vlc
 import os
