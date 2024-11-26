@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        video {
+            display: block;
+            margin: 20px auto;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        .controls button, .controls input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Playing Video</h2>
+    <video id="videoPlayer" width="800" height="450" controls></video>
+
+    <div class="controls">
+        <button onclick="backward()"><< 5s</button>
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="forward()">5s >></button>
+        <input id="volumeSlider" type="range" min="0" max="100" value="50" onchange="setVolume(this.value)">
+    </div>
+
+    <p id="countdownTimer">00:00:00</p>
+    <script>
+        // Load video
+        function loadVideo(path) {
+            fetch('/load', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ video_path: path })
+            }).then(response => response.json())
+              .then(data => console.log(data))
+              .catch(err => console.error(err));
+        }
+
+        // Play/Pause toggle
+        function playPause() {
+            fetch('/play_pause', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => console.log('Playing:', data.playing))
+                .catch(err => console.error(err));
+        }
+
+        // Forward 5 seconds
+        function forward() {
+            fetch('/forward', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => console.log('Time:', data.time))
+                .catch(err => console.error(err));
+        }
+
+        // Backward 5 seconds
+        function backward() {
+            fetch('/backward', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => console.log('Time:', data.time))
+                .catch(err => console.error(err));
+        }
+
+        // Set volume
+        function setVolume(value) {
+            fetch('/volume', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ volume: value })
+            }).then(response => response.json())
+              .then(data => console.log('Volume:', data.volume))
+              .catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>
