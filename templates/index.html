@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<nav class="navbar">
+    <h1><a id="logo" href="/index">Home</a></h1>
+    <form>
+        <div class="search">
+            <span class="material-symbols-outlined">search</span>
+            <input class="search-input" type="search" placeholder="Search">
+        </div>
+    </form>  
+    <ul>
+        <li><a class="underline-text" href="/login">Login</a></li>
+        <li><a class="underline-text" href="/register">Register</a></li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block body %}
+{% endblock %}  

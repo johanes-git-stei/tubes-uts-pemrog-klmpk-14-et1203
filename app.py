@@ -21,7 +21,7 @@ def allowed_file(filename):
 def home():
     if "user" in session:
         return redirect(url_for("browse_videos"))
-    return render_template("login.html")
+    return render_template("index.html")
 
 # Route: Login
 @app.route("/login", methods=["GET", "POST"])
