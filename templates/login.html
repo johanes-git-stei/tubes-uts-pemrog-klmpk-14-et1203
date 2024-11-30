@@ -2,9 +2,67 @@
 <html>
 <head>
     <title>Login</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+        body {
+            margin: 50px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            justify-content: center;
+            display: flex;
+        }
+        
+        .login-form{
+            text-align: center;
+            border-style: solid;
+            border-color: black;
+            border-radius: 5px;
+            
+        }
+
+        .input-box {
+            width: max-content;
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            border-radius: 28px;
+            background: #f6f6f6;
+            margin: 30px;
+        }
+
+        .input-box input{
+            font-size: 16px;
+            font-family: "Roboto", sans-serif;
+            color: black;
+            outline: none;
+            border: none;
+            background: transparent;
+            margin-left: 10px;
+        }
+
+        .login-form button{
+            width: 30%;
+            height: 35px;
+            background-color: #f6f6f6;
+            outline: none;
+            border: none;
+            border-radius: 28px;
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            font-weight: 600;
+        }
+
+        .login-form button:hover{
+            cursor: pointer
+        }
+
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <h2>Login</h2>
 
     <!-- Display an error message if passed from Flask -->
     {% if error_message %}
@@ -12,16 +70,23 @@
     {% endif %}
 
     <!-- Simple login form -->
-    <form method="post" action="/login">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    <div class="login-form">
+        <form method="post" action="/login">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button class="button" type="submit">Login</button>
+            <div class="register">
+                <p>Don't have an account? <a href="/register">Register</a></p>
+            </div>
+        </form>
+    </div>
 
-    <p>Don't have an account? <a href="/register">Register</a></p>
 </body>
 </html>
