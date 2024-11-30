@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Admin</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ 'Yes' if user[2] else 'No' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">Home</a> | <a href="/logout">Logout</a>
+</body>
+</html>
